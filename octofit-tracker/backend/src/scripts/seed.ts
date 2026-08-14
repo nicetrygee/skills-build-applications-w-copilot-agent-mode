@@ -5,7 +5,7 @@ import Activity from '../models/Activity.js';
 import Workout from '../models/Workout.js';
 import { sampleUsers, sampleTeams, sampleActivities, sampleWorkouts } from '../data/sampleData.js';
 
-const connectionString = process.env.MONGODB_URI || 'mongodb://localhost:27017/octofit_db';
+const connectionString = process.env.MONGODB_URI || 'mongodb://127.0.0.1:27017/octofit_db';
 
 /**
  * Seed the octofit_db database with test data

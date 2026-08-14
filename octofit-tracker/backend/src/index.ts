@@ -1,4 +1,5 @@
 import express, { Express } from 'express';
+import cors from 'cors';
 import 'dotenv/config';
 import db from './config/database.js';
 import apiRoutes from './routes/api.js';
@@ -9,7 +10,11 @@ const codespaceName = process.env.CODESPACE_NAME;
 const baseUrl = codespaceName
   ? `https://${codespaceName}-8000.app.github.dev`
   : `http://localhost:${PORT}`;
+const frontendOrigin = codespaceName
+  ? `https://${codespaceName}-5173.app.github.dev`
+  : 'http://localhost:5173';
 
+app.use(cors({ origin: [frontendOrigin, 'http://localhost:5173'] }));
 app.use(express.json());
 app.use('/api', apiRoutes);
 
